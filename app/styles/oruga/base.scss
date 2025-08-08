@@ -1,0 +1,15 @@
+// Relevant rules from "@oruga-ui/theme-oruga/dist/scss/utils/base"
+
+// переименовал их в соответствии с тем какие классы фактически ставит Oruga:
+// https://github.com/oruga-ui/theme-oruga/issues/95
+
+.o-scroll-keep {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  overflow: hidden scroll;
+}
+
+.o-scroll-clip {
+  overflow: hidden;
+}

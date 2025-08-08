@@ -1,0 +1,2 @@
+patchedDependencies:
+  "@oruga-ui/theme-oruga": patches/@oruga-ui__theme-oruga.patch

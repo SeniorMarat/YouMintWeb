@@ -1,0 +1,49 @@
+{
+  "name": "nuxt-app",
+  "type": "module",
+  "private": true,
+  "packageManager": "pnpm@10.8.0",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "lint": "eslint --fix . && stylelint --fix '**/*.{css,scss,vue}'",
+    "prepare": "husky",
+    "start": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "types": "nuxt typecheck"
+  },
+  "dependencies": {
+    "@oruga-ui/oruga-next": "^0.10.4",
+    "@oruga-ui/theme-oruga": "^0.6.0",
+    "@ton/core": "^0.61.0",
+    "@ton/ton": "^15.3.1",
+    "@townsquarelabs/ui-vue": "2.0.11-beta.0",
+    "@vueuse/core": "^13.0.0",
+    "date-fns": "^4.1.0",
+    "intl-formats": "^2.2.0",
+    "ts-essentials": "^10.0.4",
+    "valibot": "^1.0.0",
+    "vue-component-type-helpers": "^2.2.8",
+    "vue-valibot": "^3.1.2"
+  },
+  "devDependencies": {
+    "@ilyasemenov/eslint-config": "^1.4.2",
+    "@ilyasemenov/stylelint-config": "^1.1.0",
+    "@stylistic/stylelint-config": "^2.0.0",
+    "@vitejs/plugin-vue": "^6.0.1",
+    "@vue/language-plugin-pug": "^3.0.5",
+    "eslint": "^9.27.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.5.0",
+    "nuxt": "~4.0.3",
+    "nuxt-open-fetch": "^0.9.5",
+    "nuxt-proxy": "^0.4.1",
+    "nuxt-svgo": "^4.0.17",
+    "pug": "^3.0.3",
+    "sass-embedded": "^1.86.3",
+    "stylelint": "^16.18.0",
+    "typescript": "^5.9.2",
+    "vite-plugin-vue-css-module": "^2.0.3",
+    "vue-tsc": "~3.0.5"
+  }
+}

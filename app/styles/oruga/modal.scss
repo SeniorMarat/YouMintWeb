@@ -1,0 +1,16 @@
+// Partial import of @oruga-ui/theme-oruga/dist/scss/oruga-build.scss
+
+@use "@oruga-ui/theme-oruga/dist/scss/components/modal" with (
+  $prefix: "o-"
+);
+
+:root {
+  --o-modal-overlay-background-color: rgb(0 0 0 / 32%);
+}
+
+.o-modal__content {
+  // чтобы можно было скроллить часть контента.
+  // overflow "наследуется" только внутри flex контейнеров.
+  display: flex;
+  flex-direction: column;
+}
