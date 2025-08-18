@@ -13,6 +13,7 @@
     "types": "nuxt typecheck"
   },
   "dependencies": {
+    "@aws-crypto/sha256-js": "^5.2.0",
     "@oruga-ui/oruga-next": "^0.10.4",
     "@oruga-ui/theme-oruga": "^0.6.0",
     "@ton/core": "^0.61.0",
@@ -21,6 +22,7 @@
     "@vueuse/core": "^13.0.0",
     "date-fns": "^4.1.0",
     "intl-formats": "^2.2.0",
+    "ton": "^11.16.0",
     "ts-essentials": "^10.0.4",
     "valibot": "^1.0.0",
     "vue-component-type-helpers": "^2.2.8",
