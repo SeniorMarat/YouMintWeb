@@ -46,6 +46,7 @@
     "stylelint": "^16.18.0",
     "typescript": "^5.9.2",
     "vite-plugin-vue-css-module": "^2.0.3",
+    "vue": "^3.5.18",
     "vue-tsc": "~3.0.5"
   }
 }
