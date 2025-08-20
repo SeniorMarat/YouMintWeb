@@ -44,9 +44,4 @@ export default defineNuxtConfig({
     explicitImportsOnly: true,
   },
 
-  runtimeConfig: {
-    public: {
-      baseUrl: "",
-    },
-  },
 })

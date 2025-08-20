@@ -22,7 +22,6 @@
     "@vueuse/core": "^13.0.0",
     "date-fns": "^4.1.0",
     "intl-formats": "^2.2.0",
-    "ton": "^11.16.0",
     "ts-essentials": "^10.0.4",
     "valibot": "^1.0.0",
     "vue-component-type-helpers": "^2.2.8",

@@ -1,4 +1,4 @@
-import { deployJetton } from "../lib/deploy"
+import { deployJetton } from "../lib/jetton/deploy"
 
 export default defineEventHandler(async (event) => {
   const body = await readBody(event)
