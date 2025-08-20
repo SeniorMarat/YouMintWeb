@@ -7,9 +7,11 @@ import { buildOnchainMetadata } from "./metadata"
 
 export async function deployJetton({
   ownerAddress,
+  bondingCurveAddress,
   metadata,
 }: {
   ownerAddress: string
+  bondingCurveAddress: string
   metadata: {
     name: string
     description: string
@@ -32,11 +34,11 @@ export async function deployJetton({
       sender: adminAddress,
       responseDestination: adminAddress,
       queryId: 0n,
-      forwardTonAmount: 0n,
-      forwardPayload: beginCell().storeUint(0, 1).asSlice(),
+      forwardTonAmount: toNano("0.1"),
+      forwardPayload: beginCell().storeBit(true).storeCoins(supply).asSlice(),
     },
-    receiver: adminAddress,
-    tonAmount: toNano(1),
+    receiver: Address.parse(bondingCurveAddress),
+    tonAmount: toNano("0.1"),
   }),
   ).endCell()
 
@@ -49,7 +51,8 @@ export async function deployJetton({
 
   return {
     address: jettonMinter.address.toString(),
+    amount: toNano("0.2").toString(),
+    payload: packedMsg.toBoc().toString("base64"),
     stateInit: stateInit.toBoc().toString("base64"),
-    body: packedMsg.toBoc().toString("base64"),
   }
 }

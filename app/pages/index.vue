@@ -7,7 +7,7 @@ const { tonConnectUI } = useTonConnectUI()
 const wallet = useTonWallet()
 
 async function deploy() {
-  const { address, stateInit, body } = await $fetch("/api/deploy", {
+  const { messages } = await $fetch("/api/deploy", {
     method: "POST",
     body: {
       ownerAddress: wallet.value?.account.address,
@@ -21,14 +21,7 @@ async function deploy() {
 
   await tonConnectUI.sendTransaction({
     validUntil: Math.floor(Date.now() / 1000) + 60,
-    messages: [
-      {
-        address,
-        amount: (0.05 * 1e9).toString(),
-        payload: body,
-        stateInit,
-      },
-    ],
+    messages,
   } as SendTransactionRequest)
 }
 </script>
