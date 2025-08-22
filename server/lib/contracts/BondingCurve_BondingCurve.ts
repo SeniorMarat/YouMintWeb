@@ -2015,14 +2015,14 @@ export function dictValueParserClaimTON(): DictionaryValue<ClaimTON> {
   }
 }
 
-export type BondingCurveAMM$Data = {
-  $$type: "BondingCurveAMM$Data"
+export type BondingCurve$Data = {
+  $$type: "BondingCurve$Data"
   tokenReserve: bigint
   tonReserve: bigint
   minter: Address
 }
 
-export function storeBondingCurveAMM$Data(src: BondingCurveAMM$Data) {
+export function storeBondingCurve$Data(src: BondingCurve$Data) {
   return (builder: Builder) => {
     const b_0 = builder
     b_0.storeCoins(src.tokenReserve)
@@ -2031,29 +2031,29 @@ export function storeBondingCurveAMM$Data(src: BondingCurveAMM$Data) {
   }
 }
 
-export function loadBondingCurveAMM$Data(slice: Slice) {
+export function loadBondingCurve$Data(slice: Slice) {
   const sc_0 = slice
   const _tokenReserve = sc_0.loadCoins()
   const _tonReserve = sc_0.loadCoins()
   const _minter = sc_0.loadAddress()
-  return { $$type: "BondingCurveAMM$Data" as const, tokenReserve: _tokenReserve, tonReserve: _tonReserve, minter: _minter }
+  return { $$type: "BondingCurve$Data" as const, tokenReserve: _tokenReserve, tonReserve: _tonReserve, minter: _minter }
 }
 
-export function loadTupleBondingCurveAMM$Data(source: TupleReader) {
+export function loadTupleBondingCurve$Data(source: TupleReader) {
   const _tokenReserve = source.readBigNumber()
   const _tonReserve = source.readBigNumber()
   const _minter = source.readAddress()
-  return { $$type: "BondingCurveAMM$Data" as const, tokenReserve: _tokenReserve, tonReserve: _tonReserve, minter: _minter }
+  return { $$type: "BondingCurve$Data" as const, tokenReserve: _tokenReserve, tonReserve: _tonReserve, minter: _minter }
 }
 
-export function loadGetterTupleBondingCurveAMM$Data(source: TupleReader) {
+export function loadGetterTupleBondingCurve$Data(source: TupleReader) {
   const _tokenReserve = source.readBigNumber()
   const _tonReserve = source.readBigNumber()
   const _minter = source.readAddress()
-  return { $$type: "BondingCurveAMM$Data" as const, tokenReserve: _tokenReserve, tonReserve: _tonReserve, minter: _minter }
+  return { $$type: "BondingCurve$Data" as const, tokenReserve: _tokenReserve, tonReserve: _tonReserve, minter: _minter }
 }
 
-export function storeTupleBondingCurveAMM$Data(source: BondingCurveAMM$Data) {
+export function storeTupleBondingCurve$Data(source: BondingCurve$Data) {
   const builder = new TupleBuilder()
   builder.writeNumber(source.tokenReserve)
   builder.writeNumber(source.tonReserve)
@@ -2061,25 +2061,25 @@ export function storeTupleBondingCurveAMM$Data(source: BondingCurveAMM$Data) {
   return builder.build()
 }
 
-export function dictValueParserBondingCurveAMM$Data(): DictionaryValue<BondingCurveAMM$Data> {
+export function dictValueParserBondingCurve$Data(): DictionaryValue<BondingCurve$Data> {
   return {
     serialize: (src, builder) => {
-      builder.storeRef(beginCell().store(storeBondingCurveAMM$Data(src)).endCell())
+      builder.storeRef(beginCell().store(storeBondingCurve$Data(src)).endCell())
     },
     parse: (src) => {
-      return loadBondingCurveAMM$Data(src.loadRef().beginParse())
+      return loadBondingCurve$Data(src.loadRef().beginParse())
     },
   }
 }
 
-type BondingCurveAMM_init_args = {
-  $$type: "BondingCurveAMM_init_args"
+type BondingCurve_init_args = {
+  $$type: "BondingCurve_init_args"
   tokenReserve: bigint
   tonReserve: bigint
   minter: Address
 }
 
-function initBondingCurveAMM_init_args(src: BondingCurveAMM_init_args) {
+function initBondingCurve_init_args(src: BondingCurve_init_args) {
   return (builder: Builder) => {
     const b_0 = builder
     b_0.storeCoins(src.tokenReserve)
@@ -2088,15 +2088,15 @@ function initBondingCurveAMM_init_args(src: BondingCurveAMM_init_args) {
   }
 }
 
-async function BondingCurveAMM_init(tokenReserve: bigint, tonReserve: bigint, minter: Address) {
+async function BondingCurve_init(tokenReserve: bigint, tonReserve: bigint, minter: Address) {
   const __code = Cell.fromHex("b5ee9c7241022001000747000228ff008e88f4a413f4bcf2c80bed5320e303ed43d9010502037c7802040127b544fda89a1f401f401f480aa40d827b678d8630030002210127b4c89da89a1f401f401f480aa40d827b678d86300d02f83001d072d721d200d200fa4021103450666f04f86102f862ed44d0fa00fa00fa4055206c13048e33028020d7217021d749c21f9430d31f01de82100f8a7ea5ba8e16d33ffa00596c21a002c855205afa0258fa02cec9ed54e05f04e07023d74920c21f953103d31f04de218210b7994897bae3022182107362d09cba060802fc5b02fa00305312a8f8416f24135f038126f2a8812710a90414a05133a9045122a1208200f7c403be12f2f420503470f82822db3c705920f90022f9005ad76501d76582020134c8cb17cb0fcb0fcbffcbff71f90400c87401cb0212ca07cbffc9d070804021f842f8286d230cc801821049f0f84158cb1f01fa02c9d01046090700b6105b103441301cc8556082100f8a7ea55008cb1f16cb3f5004fa0212ce01206e9430cf84809201cee2f40001fa02cec946301540037fc8cf8580ca00cf8440ce01fa02806acf40f400c901fb0002c855205afa0258fa02cec9ed5403f08f675b02d33f31fa00fa40820092a1f842456770f82822db3c705920f90022f9005ad76501d76582020134c8cb17cb0fcb0fcbffcbff71f90400c87401cb0212ca07cbffc9d018c70516f2f403d20001985b6c12a0f8276f10e30e58c855205afa0258fa02cec9ed54e035335bc00001c121b0e302f2c082091e1f011688c855215afa0212cecec90a0228ff008e88f4a413f4bcf2c80bed5320e303ed43d90b1002037c580c0e0127b6d81da89a1f401f481f480aa40d827b678d86300d0002220127b7605da89a1f401f481f480aa40d827b678d86900f000ef82a546330523001f83001d072d721d200d200fa4021103450666f04f86102f862ed44d0fa00fa40fa4055206c13048e53028020d7217021d749c21f9430d31f01de208210178d4519ba8e1630d33ffa00596c21a002c855205afa0212cecec9ed54e082107bdd97deba8e15d33ffa00596c21a002c855205afa0212cecec9ed54e05f04e011045a02d70d1ff2e0822182100f8a7ea5bae302218210178d4519bae3022182107ac8d559bae302218210595f07bcba12151a1b01fe31d33ffa00fa40d72c01916d93fa4001e201f40431fa0023fa4430f2d08a8123fff84229c705f2f45164a181093e21c2fff2f4820092b827d749c200f2f4f8416f2425b8a4541432817d7106fa40fa0071d721fa00fa00306c6170f83a12a85240a081290470f836aa008208989680a0a0bcf2f450547080407f2a4613509a1302f4c855508210178d45195007cb1f15cb3f5003fa02ce01206e9430cf84809201cee201fa02cec9525328db3c10561024103610261045102410235f41f90001f9005ad76501d76582020134c8cb17cb0fcb0fcbffcbff71f9040003c8cf8580ca0012cccccf884008cbff01fa028069cf40cf8634f400c901fb000216140018c855205afa0212cecec9ed5404fc31d33ffa00fa40d72c01916d93fa4001e201fa005164a0705349db3cf842fa44315920f90022f9005ad76501d76582020134c8cb17cb0fcb0fcbffcbff71f90400206ef2d08001ba9b8123fff84252a0c705f2f4dff8416f2421f8276f1021a127c200963c1059385f06e30d048208989680b60972fb02236eb39170e30d161718190018f82ac855215afa0212cecec900ae5531fa40fa0071d721fa00fa00306c6170f83a5240a012a17170294913508bc8553082107362d09c5005cb1f13cb3f01fa02cecec9290447135066441359c8cf8580ca00cf8440ce01fa02806acf40f400c901fb004140000620c20000988e3803206ef2d0808100827004c8018210d53276db58cb1fcb3fc91024103512441359c8cf8580ca00cf8440ce01fa02806acf40f400c901fb0093135f03e202c855205afa0212cecec9ed5400c231fa40d200306d019930f82a4430126f0358923333e201c8598210ca77fdc25003cb1f01fa02216eb38e117f01ca0001206ef2d0806f235023cececc947032ca00e2c90170804043137fc8cf8580ca00cf8440ce01fa02806acf40f400c901fb000190e3023431820b93b1ceba8e3701fa40308123fff8425003c70512f2f482089896808010fb027083066d40037fc8cf8580ca00cf8440ce01fa02806acf40f400c901fb00e05bf2c0821c01fc31d33ffa00d72c01916d93fa4001e2318123fff84226c705f2f45131a181093e21c2fff2f4f8416f2443305230fa40fa0071d721fa00fa00306c6170f83a813cf6811a2c70f836aa0012a012bcf2f47080405414367f07c8553082107bdd97de5005cb1f13cb3f01fa02ce01206e9430cf84809201cee2c92604431350551d004e441359c8cf8580ca00cf8440ce01fa02806acf40f400c901fb0002c855205afa0212cecec9ed540088028126f2a8812710a90402fa00305334a85043a15122a9045205a1208200f7c405be14f2f45880406d40037fc8cf8580ca00cf8440ce01fa02806acf40f400c901fb00010030820898968070fb02f842c8cf8508ce70cf0b6ec98042fb006ea2fcad")
   const builder = beginCell()
-  initBondingCurveAMM_init_args({ $$type: "BondingCurveAMM_init_args", tokenReserve, tonReserve, minter })(builder)
+  initBondingCurve_init_args({ $$type: "BondingCurve_init_args", tokenReserve, tonReserve, minter })(builder)
   const __data = builder.endCell()
   return { code: __code, data: __data }
 }
 
-export const BondingCurveAMM_errors = {
+export const BondingCurve_errors = {
   2: { message: "Stack underflow" },
   3: { message: "Stack overflow" },
   4: { message: "Integer overflow" },
@@ -2142,7 +2142,7 @@ export const BondingCurveAMM_errors = {
   63428: { message: "Slippage" },
 } as const
 
-export const BondingCurveAMM_errors_backward = {
+export const BondingCurve_errors_backward = {
   "Stack underflow": 2,
   "Stack overflow": 3,
   "Integer overflow": 4,
@@ -2188,7 +2188,7 @@ export const BondingCurveAMM_errors_backward = {
   "Slippage": 63428,
 } as const
 
-const BondingCurveAMM_types: ABIType[] = [
+const BondingCurve_types: ABIType[] = [
   { name: "DataSize", header: null, fields: [{ name: "cells", type: { kind: "simple", type: "int", optional: false, format: 257 } }, { name: "bits", type: { kind: "simple", type: "int", optional: false, format: 257 } }, { name: "refs", type: { kind: "simple", type: "int", optional: false, format: 257 } }] },
   { name: "SignedBundle", header: null, fields: [{ name: "signature", type: { kind: "simple", type: "fixed-bytes", optional: false, format: 64 } }, { name: "signedData", type: { kind: "simple", type: "slice", optional: false, format: "remainder" } }] },
   { name: "StateInit", header: null, fields: [{ name: "code", type: { kind: "simple", type: "cell", optional: false } }, { name: "data", type: { kind: "simple", type: "cell", optional: false } }] },
@@ -2222,10 +2222,10 @@ const BondingCurveAMM_types: ABIType[] = [
   { name: "VerifyInfo", header: null, fields: [{ name: "owner", type: { kind: "simple", type: "address", optional: false } }, { name: "minter", type: { kind: "simple", type: "address", optional: false } }, { name: "code", type: { kind: "simple", type: "cell", optional: false } }] },
   { name: "TakeWalletBalance", header: 3396861378, fields: [{ name: "balance", type: { kind: "simple", type: "uint", optional: false, format: "coins" } }, { name: "verifyInfo", type: { kind: "simple", type: "VerifyInfo", optional: true } }] },
   { name: "ClaimTON", header: 60010958, fields: [{ name: "receiver", type: { kind: "simple", type: "address", optional: false } }] },
-  { name: "BondingCurveAMM$Data", header: null, fields: [{ name: "tokenReserve", type: { kind: "simple", type: "uint", optional: false, format: "coins" } }, { name: "tonReserve", type: { kind: "simple", type: "uint", optional: false, format: "coins" } }, { name: "minter", type: { kind: "simple", type: "address", optional: false } }] },
+  { name: "BondingCurve$Data", header: null, fields: [{ name: "tokenReserve", type: { kind: "simple", type: "uint", optional: false, format: "coins" } }, { name: "tonReserve", type: { kind: "simple", type: "uint", optional: false, format: "coins" } }, { name: "minter", type: { kind: "simple", type: "address", optional: false } }] },
 ]
 
-const BondingCurveAMM_opcodes = {
+const BondingCurve_opcodes = {
   Buy: 3080276119,
   Sell: 2259500909,
   BuyNotification: 1240528961,
@@ -2246,17 +2246,17 @@ const BondingCurveAMM_opcodes = {
   ClaimTON: 60010958,
 }
 
-const BondingCurveAMM_getters: ABIGetter[] = [
+const BondingCurve_getters: ABIGetter[] = [
   { name: "get_token_reserve", methodId: 124484, arguments: [], returnType: { kind: "simple", type: "int", optional: false, format: 257 } },
   { name: "get_ton_reserve", methodId: 117287, arguments: [], returnType: { kind: "simple", type: "int", optional: false, format: 257 } },
 ]
 
-export const BondingCurveAMM_getterMapping: { [key: string]: string } = {
+export const BondingCurve_getterMapping: { [key: string]: string } = {
   get_token_reserve: "getGetTokenReserve",
   get_ton_reserve: "getGetTonReserve",
 }
 
-const BondingCurveAMM_receivers: ABIReceiver[] = [
+const BondingCurve_receivers: ABIReceiver[] = [
   { receiver: "internal", message: { kind: "empty" } },
   { receiver: "internal", message: { kind: "typed", type: "Buy" } },
   { receiver: "internal", message: { kind: "typed", type: "JettonNotification" } },
@@ -2269,32 +2269,32 @@ export const gasForTransfer = 10500n
 export const minTonsForStorage = 10000000n
 export const Basechain = 0n
 
-export class BondingCurveAMM implements Contract {
+export class BondingCurve implements Contract {
   public static readonly storageReserve = 0n
-  public static readonly errors = BondingCurveAMM_errors_backward
-  public static readonly opcodes = BondingCurveAMM_opcodes
+  public static readonly errors = BondingCurve_errors_backward
+  public static readonly opcodes = BondingCurve_opcodes
 
   static async init(tokenReserve: bigint, tonReserve: bigint, minter: Address) {
-    return await BondingCurveAMM_init(tokenReserve, tonReserve, minter)
+    return await BondingCurve_init(tokenReserve, tonReserve, minter)
   }
 
   static async fromInit(tokenReserve: bigint, tonReserve: bigint, minter: Address) {
-    const __gen_init = await BondingCurveAMM_init(tokenReserve, tonReserve, minter)
+    const __gen_init = await BondingCurve_init(tokenReserve, tonReserve, minter)
     const address = contractAddress(0, __gen_init)
-    return new BondingCurveAMM(address, __gen_init)
+    return new BondingCurve(address, __gen_init)
   }
 
   static fromAddress(address: Address) {
-    return new BondingCurveAMM(address)
+    return new BondingCurve(address)
   }
 
   readonly address: Address
   readonly init?: { code: Cell, data: Cell }
   readonly abi: ContractABI = {
-    types: BondingCurveAMM_types,
-    getters: BondingCurveAMM_getters,
-    receivers: BondingCurveAMM_receivers,
-    errors: BondingCurveAMM_errors,
+    types: BondingCurve_types,
+    getters: BondingCurve_getters,
+    receivers: BondingCurve_receivers,
+    errors: BondingCurve_errors,
   }
 
   constructor(address: Address, init?: { code: Cell, data: Cell }) {

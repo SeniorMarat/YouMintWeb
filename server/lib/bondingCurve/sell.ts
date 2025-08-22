@@ -1,6 +1,6 @@
 import { Address, beginCell, toNano } from "@ton/core"
 
-import { BondingCurveAMM, storeJettonTransfer } from "../contracts/BondingCurveAMM_BondingCurveAMM"
+import { BondingCurve, storeJettonTransfer } from "../contracts/BondingCurve_BondingCurve"
 import { JettonWallet } from "../contracts/Jetton_JettonWallet"
 
 export async function sell({
@@ -10,7 +10,7 @@ export async function sell({
   minTonOut,
 }: { userAddress: string, tokenAddress: string, amount: number, minTonOut: number }) {
   const jettonWalletAddress = (await JettonWallet.fromInit(0n, Address.parse(userAddress), Address.parse(tokenAddress))).address
-  const bondingCurveAddress = (await BondingCurveAMM.fromInit(0n, 0n, Address.parse(tokenAddress))).address
+  const bondingCurveAddress = (await BondingCurve.fromInit(0n, 0n, Address.parse(tokenAddress))).address
 
   const forwardPayload = beginCell().storeBit(false).storeCoins(BigInt(minTonOut)).asSlice()
 
