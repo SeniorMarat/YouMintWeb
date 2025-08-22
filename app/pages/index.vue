@@ -28,7 +28,6 @@ async function deploy() {
 
 <template lang="pug">
 div
-  pre {{ token_name }}
   input(v-model="token_name" placeholder="jetton name")
   button(@click="deploy") Deploy
 </template>

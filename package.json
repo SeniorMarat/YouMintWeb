@@ -24,6 +24,7 @@
     "intl-formats": "^2.2.0",
     "ts-essentials": "^10.0.4",
     "valibot": "^1.0.0",
+    "valibotx": "^2.2.3",
     "vue-component-type-helpers": "^2.2.8",
     "vue-valibot": "^3.1.2"
   },
