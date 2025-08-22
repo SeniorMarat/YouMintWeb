@@ -7,6 +7,7 @@ export default defineNuxtConfig({
 
   // @sort
   modules: [
+    "nuxt-open-fetch",
     "nuxt-svgo",
   ],
 
@@ -32,6 +33,14 @@ export default defineNuxtConfig({
         scss: {
           additionalData: "@use '@/styles/mixins' as *;",
         },
+      },
+    },
+  },
+
+  openFetch: {
+    clients: {
+      api: {
+        baseURL: "https://testnet.toncenter.com",
       },
     },
   },

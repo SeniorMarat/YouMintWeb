@@ -38,7 +38,7 @@
     "husky": "^9.1.7",
     "lint-staged": "^15.5.0",
     "nuxt": "~4.0.3",
-    "nuxt-open-fetch": "^0.9.5",
+    "nuxt-open-fetch": "^0.13.2",
     "nuxt-proxy": "^0.4.1",
     "nuxt-svgo": "^4.0.17",
     "pug": "^3.0.3",

@@ -9,6 +9,18 @@ const wallet = useTonWallet()
 const buyAmount = ref(0)
 const sellAmount = ref(0)
 
+const $api = useApiFetch()
+
+const jettonData = await $api("/api/v3/jetton/wallets", {
+  query: {
+    jetton_address: [address],
+  },
+})
+
+const jettonMaster = computed(() => Object.values(jettonData.metadata!)
+  .flatMap((m: any) => m.token_info || [])
+  .find((t: any) => t.type === "jetton_masters"))
+
 async function buy() {
   const { messages } = await $fetch("/api/buy", {
     method: "POST",
@@ -44,6 +56,7 @@ async function sell() {
 </script>
 
 <template lang="pug">
+pre {{ jettonMaster.name }}
 div
   input(v-model.number="buyAmount" placeholder="amount of toncoins")
   button(@click="buy") Buy
