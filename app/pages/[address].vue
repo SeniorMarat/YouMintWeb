@@ -1,19 +1,38 @@
 <script setup lang="ts">
-import { useTonConnectUI } from "@townsquarelabs/ui-vue"
+import { useTonConnectUI, useTonWallet } from "@townsquarelabs/ui-vue"
 
 const { address } = useRoute().params as { address: string }
 
 const { tonConnectUI } = useTonConnectUI()
+const wallet = useTonWallet()
 
-const amount = ref(0)
+const buyAmount = ref(0)
+const sellAmount = ref(0)
 
 async function buy() {
   const { messages } = await $fetch("/api/buy", {
     method: "POST",
     body: {
       tokenAddress: address,
-      amount: amount.value,
+      amount: buyAmount.value,
       minTokensOut: 1,
+    },
+  })
+
+  await tonConnectUI.sendTransaction({
+    validUntil: Math.floor(Date.now() / 1000) + 60,
+    messages,
+  })
+}
+
+async function sell() {
+  const { messages } = await $fetch("/api/sell", {
+    method: "POST",
+    body: {
+      userAddress: wallet.value?.account.address,
+      tokenAddress: address,
+      amount: sellAmount.value,
+      minTonOut: 1,
     },
   })
 
@@ -26,6 +45,9 @@ async function buy() {
 
 <template lang="pug">
 div
-  input(v-model.number="amount" placeholder="amount of toncoins")
+  input(v-model.number="buyAmount" placeholder="amount of toncoins")
   button(@click="buy") Buy
+div
+  input(v-model.number="sellAmount" placeholder="amount of tokens")
+  button(@click="sell") Sell
 </template>

@@ -18,7 +18,6 @@ export async function buy({
     address: bondingCurveAddress.toString(),
     amount: toNano(amount).toString(),
     payload: payload.toBoc().toString("base64"),
-    minTokensOut: minTokensOut.toString(),
   }
 
   return buyMessage
