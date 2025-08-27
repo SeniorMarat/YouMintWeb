@@ -1,7 +1,9 @@
 <script setup lang="ts">
+import { OButton } from "@oruga-ui/oruga-next"
 import { useTonConnectUI, useTonWallet } from "@townsquarelabs/ui-vue"
+import { useRouteQuery } from "@vueuse/router"
 
-const { address } = useRoute().params as { address: string }
+const address = useRouteQuery<string>("token_address")
 
 const { tonConnectUI } = useTonConnectUI()
 const wallet = useTonWallet()
@@ -24,14 +26,14 @@ const $api = useApiFetch()
 
 const jettonData = await $api("/api/v3/jetton/wallets", {
   query: {
-    jetton_address: [address],
+    jetton_address: [address.value],
   },
 })
 
 const { tonReserve, tokenReserve } = await $fetch("/api/reserve", {
   method: "GET",
   query: {
-    tokenAddress: address,
+    tokenAddress: address.value,
   },
 })
 
@@ -45,7 +47,7 @@ async function buy() {
   const { messages } = await $fetch("/api/buy", {
     method: "POST",
     body: {
-      tokenAddress: address,
+      tokenAddress: address.value,
       amount: buyAmount.value,
       minTokensOut: 1,
     },
@@ -62,7 +64,7 @@ async function sell() {
     method: "POST",
     body: {
       userAddress: wallet.value?.account.address,
-      tokenAddress: address,
+      tokenAddress: address.value,
       amount: sellAmount.value,
       minTonOut: 1,
     },
@@ -84,4 +86,5 @@ div
 div
   input(v-model.number="sellAmount" placeholder="amount of tokens")
   button(@click="sell") Sell
+o-button(variant="primary" rounded) test
 </template>
