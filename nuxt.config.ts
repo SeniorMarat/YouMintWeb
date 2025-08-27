@@ -47,6 +47,7 @@ export default defineNuxtConfig({
 
   css: [
     "~/styles/index.scss",
+    "@oruga-ui/theme-oruga/dist/oruga.css",
   ],
 
   svgo: {
