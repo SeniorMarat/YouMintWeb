@@ -15,6 +15,8 @@ export async function deployBondingCurve({
     name: string
     description: string
     image: string
+    decimals: string
+    symbol: string
   }
 }) {
   const adminAddress = Address.parse(ownerAddress)
@@ -40,8 +42,8 @@ export async function deployBondingCurve({
 
   const jettonMessage = await deployJetton({ ownerAddress, bondingCurveAddress: bondingCurve.address.toString(), metadata })
 
-  return [
+  return { messages: [
     jettonMessage,
     bondingCurveMessage,
-  ]
+  ], jettonAddress: jettonMinter.address.toString() }
 }

@@ -43,6 +43,8 @@ export function buildOnchainMetadata(data: {
   name: string
   description: string
   image: string
+  decimals: string
+  symbol: string
 }): Cell {
   const dict = Dictionary.empty(Dictionary.Keys.BigUint(256), Dictionary.Values.Cell())
 

@@ -7,17 +7,20 @@ const { tonConnectUI } = useTonConnectUI()
 const wallet = useTonWallet()
 
 async function deploy() {
-  const { messages } = await $fetch("/api/deploy", {
+  const { messages, jettonAddress } = await $fetch("/api/deploy", {
     method: "POST",
     body: {
       ownerAddress: wallet.value?.account.address,
       metadata: {
         name: token_name.value,
-        symbol: token_name.value,
+        description: "Test jetton",
+        image: "9",
         decimals: "9",
+        symbol: token_name.value,
       },
     },
   })
+  console.log(jettonAddress)
 
   await tonConnectUI.sendTransaction({
     validUntil: Math.floor(Date.now() / 1000) + 60,

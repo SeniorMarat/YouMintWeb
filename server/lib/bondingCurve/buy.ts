@@ -1,14 +1,15 @@
-import { Address, beginCell, toNano } from "@ton/core"
+import { beginCell, toNano } from "@ton/core"
 
-import { BondingCurve, storeBuy } from "../contracts/BondingCurve_BondingCurve"
+import { storeBuy } from "../contracts/BondingCurve_BondingCurve"
+
+import { getBondingCurveAddress } from "./address"
 
 export async function buy({
   tokenAddress,
   amount,
   minTokensOut,
 }: { tokenAddress: string, amount: number, minTokensOut: number }) {
-  const bondingCurveAddress = (await BondingCurve.fromInit(0n, 0n, Address.parse(tokenAddress))).address
-
+  const bondingCurveAddress = await getBondingCurveAddress(tokenAddress)
   const payload = beginCell().store(storeBuy({
     $$type: "Buy",
     minTokensOut: BigInt(minTokensOut),

@@ -6,6 +6,17 @@ const { address } = useRoute().params as { address: string }
 const { tonConnectUI } = useTonConnectUI()
 const wallet = useTonWallet()
 
+function formatPrice(tonReserveStr: string, tokenReserveStr: string): number {
+  const tonReserve = BigInt(tonReserveStr)
+  const tokenReserve = BigInt(tokenReserveStr)
+
+  // оба значения в nano (1 TON = 1e9 nanoTON, токены скорее всего тоже в 1e9)
+  const tonPerToken = Number(tonReserve) / Number(tokenReserve)
+
+  // переведём в TON за 1 токен
+  return tonPerToken
+}
+
 const buyAmount = ref(0)
 const sellAmount = ref(0)
 
@@ -16,6 +27,15 @@ const jettonData = await $api("/api/v3/jetton/wallets", {
     jetton_address: [address],
   },
 })
+
+const { tonReserve, tokenReserve } = await $fetch("/api/reserve", {
+  method: "GET",
+  query: {
+    tokenAddress: address,
+  },
+})
+
+const priceTon = formatPrice(tonReserve, tokenReserve)
 
 const jettonMaster = computed(() => Object.values(jettonData.metadata!)
   .flatMap((m: any) => m.token_info || [])
@@ -56,6 +76,7 @@ async function sell() {
 </script>
 
 <template lang="pug">
+pre {{ priceTon }}
 pre {{ jettonMaster.name }}
 div
   input(v-model.number="buyAmount" placeholder="amount of toncoins")
