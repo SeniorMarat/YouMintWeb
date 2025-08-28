@@ -37,12 +37,18 @@ importers:
       '@vueuse/router':
         specifier: ^13.8.0
         version: 13.8.0(vue-router@4.5.1(vue@3.5.18(typescript@5.9.2)))(vue@3.5.18(typescript@5.9.2))
+      chart.js:
+        specifier: ^4.5.0
+        version: 4.5.0
       date-fns:
         specifier: ^4.1.0
         version: 4.1.0
       intl-formats:
         specifier: ^2.2.0
         version: 2.2.0
+      rambda:
+        specifier: ^10.3.2
+        version: 10.3.2
       ts-essentials:
         specifier: ^10.0.4
         version: 10.1.1(typescript@5.9.2)
@@ -52,6 +58,9 @@ importers:
       valibotx:
         specifier: ^2.2.3
         version: 2.2.3(valibot@1.1.0(typescript@5.9.2))
+      vue-chartjs:
+        specifier: ^5.3.2
+        version: 5.3.2(chart.js@4.5.0)(vue@3.5.18(typescript@5.9.2))
       vue-component-type-helpers:
         specifier: ^2.2.8
         version: 2.2.12
@@ -813,6 +822,9 @@ packages:
 
   '@keyv/serialize@1.1.0':
     resolution: {integrity: sha512-RlDgexML7Z63Q8BSaqhXdCYNBy/JQnqYIwxofUrNLGCblOMHp+xux2Q8nLMLlPpgHQPoU0Do8Z6btCpRBEqZ8g==}
+
+  '@kurkle/color@0.3.4':
+    resolution: {integrity: sha512-M5UknZPHRu3DEDWoipU6sE8PdkZ6Z/S+v4dD+Ke8IaNlpdSQah50lz1KtcFBa2vsdOnwbbnxJwVM4wty6udA5w==}
 
   '@kwsites/file-exists@1.1.1':
     resolution: {integrity: sha512-m9/5YGR18lIwxSFDwfE3oA7bWuq9kdau6ugN4H2rJeyhFQZcG9AgSHkQtSD15a8WvTgfz9aikZMrKPHvbpqFiw==}
@@ -2198,6 +2210,10 @@ packages:
 
   character-parser@2.2.0:
     resolution: {integrity: sha512-+UqJQjFEFaTAs3bNsF2j2kEN1baG/zghZbdqoYEDxGZtJo9LBzl1A+m0D4n3qKx8N2FNv8/Xp6yV9mQmBuptaw==}
+
+  chart.js@4.5.0:
+    resolution: {integrity: sha512-aYeC/jDgSEx8SHWZvANYMioYMZ2KX02W6f6uVfyteuCGcadDLcYVHdfdygsTQkQ4TKn5lghoojAsPj5pu0SnvQ==}
+    engines: {pnpm: '>=8'}
 
   chokidar@3.6.0:
     resolution: {integrity: sha512-7VT13fmjotKpGipCW9JEQAusEPE+Ei8nl6/g4FBAmIm0GOOLMua9NDDo/DWp0ZAxCr3cPq5ZpBqmPAQgDda2Pw==}
@@ -4799,6 +4815,9 @@ packages:
   radix3@1.1.2:
     resolution: {integrity: sha512-b484I/7b8rDEdSDKckSSBA8knMpcdsXudlE/LNL639wFoHKwLbEkQFZHWEYwDC0wa0FKUcCY+GAF73Z7wxNVFA==}
 
+  rambda@10.3.2:
+    resolution: {integrity: sha512-GCM14DK1CG9Fw3YRRoCUc111RA/SZQAGyvrBrdMCBUXIRQ2AVPb1mysON1gOpItuVJ0WQpEb/Eq5FRxU8OxNbg==}
+
   randombytes@2.1.0:
     resolution: {integrity: sha512-vYl3iOX+4CKUWuxGi9Ukhie6fsqXqS9FE2Zaic4tNFD2N2QQaXOMFbuKK4QmDHC0JO6B1Zp41J0LpT0oR68amQ==}
 
@@ -5914,6 +5933,12 @@ packages:
   vue-bundle-renderer@2.1.2:
     resolution: {integrity: sha512-M4WRBO/O/7G9phGaGH9AOwOnYtY9ZpPoDVpBpRzR2jO5rFL9mgIlQIgums2ljCTC2HL1jDXFQc//CzWcAQHgAw==}
 
+  vue-chartjs@5.3.2:
+    resolution: {integrity: sha512-NrkbRRoYshbXbWqJkTN6InoDVwVb90C0R7eAVgMWcB9dPikbruaOoTFjFYHE/+tNPdIe6qdLCDjfjPHQ0fw4jw==}
+    peerDependencies:
+      chart.js: ^4.1.1
+      vue: ^3.0.0-0 || ^2.7.0
+
   vue-component-type-helpers@2.2.12:
     resolution: {integrity: sha512-YbGqHZ5/eW4SnkPNR44mKVc6ZKQoRs/Rux1sxC6rdwXb4qpbOSYfDr9DsTHolOTGmIKgM9j141mZbBeg05R1pw==}
 
@@ -6763,6 +6788,8 @@ snapshots:
       '@jridgewell/sourcemap-codec': 1.5.4
 
   '@keyv/serialize@1.1.0': {}
+
+  '@kurkle/color@0.3.4': {}
 
   '@kwsites/file-exists@1.1.1':
     dependencies:
@@ -8425,6 +8452,10 @@ snapshots:
   character-parser@2.2.0:
     dependencies:
       is-regex: 1.2.1
+
+  chart.js@4.5.0:
+    dependencies:
+      '@kurkle/color': 0.3.4
 
   chokidar@3.6.0:
     dependencies:
@@ -11512,6 +11543,8 @@ snapshots:
 
   radix3@1.1.2: {}
 
+  rambda@10.3.2: {}
+
   randombytes@2.1.0:
     dependencies:
       safe-buffer: 5.2.1
@@ -12687,6 +12720,11 @@ snapshots:
   vue-bundle-renderer@2.1.2:
     dependencies:
       ufo: 1.6.1
+
+  vue-chartjs@5.3.2(chart.js@4.5.0)(vue@3.5.18(typescript@5.9.2)):
+    dependencies:
+      chart.js: 4.5.0
+      vue: 3.5.18(typescript@5.9.2)
 
   vue-component-type-helpers@2.2.12: {}
 

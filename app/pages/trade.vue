@@ -3,7 +3,11 @@ import { useRouteQuery } from "@vueuse/router"
 
 const address = useRouteQuery<string>("token_address")
 
-const data = await $fetch("/api/reserve", {
+const tokenMetaData = await $fetch("/api/reserve", {
+  query: { tokenAddress: address.value },
+})
+
+const priceData = await $fetch("/api/price", {
   query: { tokenAddress: address.value },
 })
 </script>
@@ -11,11 +15,11 @@ const data = await $fetch("/api/reserve", {
 <template lang="pug">
 .page
   .column
-    trade-header(:data="data")
-    trade-chart(:data="data")
+    trade-header(:data="tokenMetaData")
+    trade-chart(:data="priceData" interval="day")
   .column
     trade-form
-    trade-info(:data="data")
+    trade-info(:data="tokenMetaData")
 </template>
 
 <style module lang="scss">
