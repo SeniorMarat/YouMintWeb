@@ -29,6 +29,14 @@ export const jettonOnChainMetadataSpec: {
   uri: "ascii",
 }
 
+export interface JettonMetaData {
+  name: string
+  description: string
+  image: string
+  decimals: string
+  symbol: string
+}
+
 const sha256 = (str: string) => {
   const sha = new Sha256()
   sha.update(str)
@@ -39,13 +47,7 @@ const toKey = (key: string) => {
   return BigInt(`0x${sha256(key).toString("hex")}`)
 }
 
-export function buildOnchainMetadata(data: {
-  name: string
-  description: string
-  image: string
-  decimals: string
-  symbol: string
-}): Cell {
+export function buildOnchainMetadata(data: JettonMetaData): Cell {
   const dict = Dictionary.empty(Dictionary.Keys.BigUint(256), Dictionary.Values.Cell())
 
   // Store the on-chain metadata in the dictionary

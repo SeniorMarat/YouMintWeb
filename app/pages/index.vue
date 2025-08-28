@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { OButton, OInput } from "@oruga-ui/oruga-next"
 import { useTonConnectUI, useTonWallet } from "@townsquarelabs/ui-vue"
 import type { SendTransactionRequest } from "@townsquarelabs/ui-vue"
 
@@ -29,13 +30,13 @@ async function deploy() {
       messages,
     } as SendTransactionRequest)
   } finally {
-    await router.push({ path: "/trade", query: { token_address: tokenAddress } })
+    router.push({ path: "/trade", query: { token_address: tokenAddress } })
   }
 }
 </script>
 
 <template lang="pug">
 div
-  input(v-model="token_name" placeholder="jetton name")
-  button(@click="deploy") Deploy
+  o-input(v-model="token_name" placeholder="jetton name")
+  o-button(@click="deploy") Deploy
 </template>

@@ -3,6 +3,7 @@ import { Address, beginCell, storeStateInit, toNano } from "@ton/core"
 
 import { JettonMinter, storeMint } from "#server/lib/contracts/Jetton_JettonMinter"
 
+import type { JettonMetaData } from "./metadata"
 import { buildOnchainMetadata } from "./metadata"
 
 export async function deployJetton({
@@ -12,11 +13,7 @@ export async function deployJetton({
 }: {
   ownerAddress: string
   bondingCurveAddress: string
-  metadata: {
-    name: string
-    description: string
-    image: string
-  }
+  metadata: JettonMetaData
 }) {
   const adminAddress = Address.parse(ownerAddress)
 
