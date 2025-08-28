@@ -1,7 +1,7 @@
 import { Address, beginCell, toNano } from "@ton/core"
 
-import { storeJettonTransfer } from "../contracts/BondingCurve_BondingCurve"
-import { JettonWallet } from "../contracts/Jetton_JettonWallet"
+import { storeJettonTransfer } from "#server/lib/contracts/BondingCurve_BondingCurve"
+import { JettonWallet } from "#server/lib/contracts/Jetton_JettonWallet"
 
 import { getBondingCurveAddress } from "./address"
 

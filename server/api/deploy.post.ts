@@ -1,6 +1,6 @@
 import * as v from "valibotx"
 
-import { deployBondingCurve } from "../lib/bondingCurve"
+import { deployBondingCurve } from "#server/lib/bondingCurve"
 
 const parseBody = v.flatErrorsParser(
   v.object({
@@ -19,10 +19,10 @@ export default defineEventHandler(async (event) => {
   const body = await readValidatedBody(event, parseBody)
   const { ownerAddress, metadata } = body
 
-  const { messages, jettonAddress } = await deployBondingCurve({
+  const { messages, tokenAddress } = await deployBondingCurve({
     ownerAddress,
     metadata,
   })
 
-  return { success: true, messages, jettonAddress }
+  return { success: true, messages, tokenAddress }
 })

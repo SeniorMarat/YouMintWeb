@@ -1,3 +1,5 @@
+import { fileURLToPath } from "node:url"
+
 import VitePluginVue from "@vitejs/plugin-vue"
 import vueCssModule from "vite-plugin-vue-css-module"
 
@@ -12,6 +14,10 @@ export default defineNuxtConfig({
   ],
 
   ssr: false,
+
+  alias: {
+    "#server": fileURLToPath(new URL("./server", import.meta.url)),
+  },
 
   nitro: {
     rollupConfig: {

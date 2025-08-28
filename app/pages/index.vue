@@ -6,8 +6,10 @@ const token_name = ref("")
 const { tonConnectUI } = useTonConnectUI()
 const wallet = useTonWallet()
 
+const router = useRouter()
+
 async function deploy() {
-  const { messages, jettonAddress } = await $fetch("/api/deploy", {
+  const { messages, tokenAddress } = await $fetch("/api/deploy", {
     method: "POST",
     body: {
       ownerAddress: wallet.value?.account.address,
@@ -20,12 +22,15 @@ async function deploy() {
       },
     },
   })
-  console.log(jettonAddress)
 
-  await tonConnectUI.sendTransaction({
-    validUntil: Math.floor(Date.now() / 1000) + 60,
-    messages,
-  } as SendTransactionRequest)
+  try {
+    await tonConnectUI.sendTransaction({
+      validUntil: Math.floor(Date.now() / 1000) + 60,
+      messages,
+    } as SendTransactionRequest)
+  } finally {
+    await router.push({ path: "/trade", query: { token_address: tokenAddress } })
+  }
 }
 </script>
 

@@ -1,6 +1,6 @@
 import * as v from "valibotx"
 
-import { sell } from "../lib/bondingCurve"
+import { sell } from "#server/lib/bondingCurve"
 
 const parseBody = v.flatErrorsParser(
   v.object({

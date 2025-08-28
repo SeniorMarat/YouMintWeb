@@ -1,7 +1,7 @@
 import type { StateInit } from "@ton/core"
 import { Address, beginCell, storeStateInit, toNano } from "@ton/core"
 
-import { JettonMinter, storeMint } from "../contracts/Jetton_JettonMinter"
+import { JettonMinter, storeMint } from "#server/lib/contracts/Jetton_JettonMinter"
 
 import { buildOnchainMetadata } from "./metadata"
 

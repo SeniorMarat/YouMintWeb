@@ -1,6 +1,6 @@
 import { beginCell, toNano } from "@ton/core"
 
-import { storeBuy } from "../contracts/BondingCurve_BondingCurve"
+import { storeBuy } from "#server/lib/contracts/BondingCurve_BondingCurve"
 
 import { getBondingCurveAddress } from "./address"
 

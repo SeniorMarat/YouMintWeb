@@ -1,10 +1,10 @@
 import type { StateInit } from "@ton/core"
 import { Address, beginCell, storeStateInit, toNano } from "@ton/core"
 
-import { BondingCurve } from "../contracts/BondingCurve_BondingCurve"
-import { JettonMinter } from "../contracts/Jetton_JettonMinter"
-import { deployJetton } from "../jetton/deploy"
-import { buildOnchainMetadata } from "../jetton/metadata"
+import { BondingCurve } from "#server/lib/contracts/BondingCurve_BondingCurve"
+import { JettonMinter } from "#server/lib/contracts/Jetton_JettonMinter"
+import { deployJetton } from "#server/lib/jetton/deploy"
+import { buildOnchainMetadata } from "#server/lib/jetton/metadata"
 
 export async function deployBondingCurve({
   ownerAddress,
@@ -45,5 +45,5 @@ export async function deployBondingCurve({
   return { messages: [
     jettonMessage,
     bondingCurveMessage,
-  ], jettonAddress: jettonMinter.address.toString() }
+  ], tokenAddress: jettonMinter.address.toString() }
 }
