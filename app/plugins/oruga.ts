@@ -1,16 +1,7 @@
-import { Button, Dropdown, Modal, OrugaConfig, Tabs, Tooltip } from "@oruga-ui/oruga-next"
+import Oruga from "@oruga-ui/oruga-next"
+import { bulmaConfig } from "@oruga-ui/theme-bulma"
 
 export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp
-    .use(Dropdown)
-    .use(Modal)
-    .use(Tooltip)
-    .use(Tabs)
-    .use(Button)
-    .use(OrugaConfig, {
-      modal: {
-        teleport: true,
-        mobileBreakpoint: "768px",
-      },
-    })
+    .use(Oruga, bulmaConfig)
 })

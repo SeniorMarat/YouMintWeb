@@ -46,6 +46,6 @@ defineProps<{
 }
 
 .block-value {
-  color: black;
+  color: white;
 }
 </style>

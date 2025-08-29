@@ -53,7 +53,7 @@ export default defineNuxtConfig({
 
   css: [
     "~/styles/index.scss",
-    "@oruga-ui/theme-oruga/dist/oruga.css",
+    "@oruga-ui/theme-bulma/dist/bulma.css",
   ],
 
   svgo: {
